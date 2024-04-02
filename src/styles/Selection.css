@@ -1,0 +1,6 @@
+.fix-box {
+    color: white;
+}
+.fix-box>h2 {
+    text-align: center;
+}
