@@ -1,5 +1,8 @@
 .fix-box {
     color: white;
+    border: 2px solid black;
+    width: 350px;
+    height: 270px;
 }
 .fix-box>h2 {
     text-align: center;
