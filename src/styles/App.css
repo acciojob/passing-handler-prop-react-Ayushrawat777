@@ -1,0 +1,51 @@
+html,
+body {
+  height: 100%;
+  background-color: #3c415e;
+}
+
+.heading {
+  color: white;
+  text-align: center;
+}
+
+button {
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 14px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btn-blue {
+  background: rgb(34, 193, 195);
+  color: black;
+}
+
+.btn-orange {
+  background: rgb(221, 112, 18);
+  color: black;
+}
+
+.btn-green {
+  background: rgb(44, 209, 88);
+  color: black;
+}
+.row {
+  position: relative;
+  top: 260px;
+  display: flex;
+  justify-content: space-around;
+}
+.fix-box {
+  color: white;
+  border: 2px solid black;
+  width: 350px;
+  height: 270px;
+}
+.fix-box>h2 {
+  text-align: center;
+}
