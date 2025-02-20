@@ -3,7 +3,7 @@ import React from "react";
 const ColourSelector = ({ item, selectNextBackground }) => {
   const handleClick = () => {
     selectNextBackground(item); // Pass the selected background color
-  };
+  }
 
   return (
     <button
