@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
 const Selection = ({ item, selectedColor }) => {
   const [background, setBackground] = useState(item.background); // Initial background color
