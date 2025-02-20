@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/App.css";
 import ColourSelector from "./ColourSelector";
-import Selection from "./Selection";
+import Selection from "./Selection"
 
 const App = () => {
   const [selectedColor, setSelectedColor] = useState(""); // Manages the currently selected color
