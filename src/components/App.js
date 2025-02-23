@@ -1,66 +1,56 @@
 import React, { useState } from "react";
-import "../styles/App.css";
-import ColourSelector from "./ColourSelector";
-import Selection from "./Selection"
+import '../styles/App.css';
+import Selection from './Selection';
+import ColourSelector from './ColourSelector';
+
+const colourConfig = [
+  {
+    key: 'blue',
+    label: 'Blue',
+    classname: 'btn-blue',
+    background: 'rgb(34, 193, 195)'
+  },
+  {
+    key: 'orange',
+    label: 'Orange',
+    classname: 'btn-orange',
+    background: 'rgb(221, 112, 18)'
+  },
+  {
+    key: 'green',
+    label: 'Green',
+    classname: 'btn-green',
+    background: 'rgb(44, 209, 88)'
+  }
+];
+
+const title = 'Select the gradient and then the Box to change the color';
 
 const App = () => {
-  const [selectedColor, setSelectedColor] = useState(""); // Manages the currently selected color
+  const [selectedColor, setSelectedColor] = useState({ background: "" });
 
-  // Data for color options
-  const colorData = [
-    {
-      key: "aqua",
-      label: "Blue",
-      classname: "btn-blue",
-      background: "rgb(34, 193, 195)",
-    },
-    {
-      key: "orange",
-      label: "Orange",
-      classname: "btn-orange",
-      background: "rgb(221, 112, 18)",
-    },
-    {
-      key: "green",
-      label: "Green",
-      classname: "btn-green",
-      background: "rgb(44, 209, 88)",
-    },
-  ];
-
-  // Data for selection boxes
-  const boxData = [
-    { box: "selection1", background: "rgb(34, 193, 195)" },
-    { box: "selection2", background: "rgb(221, 112, 18)" },
-    { box: "selection3", background: "rgb(44, 209, 88)" },
-  ];
-
-  const title = "Select the gradient and then the Box to change the color";
+  const handleColorSelection = (color) => {
+    setSelectedColor(color);
+  };
 
   return (
-    <div className="container">
+    <div id="master">
       <h5 className="heading">{title}</h5>
-      <div className="master">
-        <div className="row">
-          {colorData.map((item) => (
-            <ColourSelector
-              key={item.key}
-              item={item}
-              selectNextBackground={(color) =>
-                setSelectedColor(color.background)
-              }
-            />
-          ))}
-        </div>
-        <div className="row" id="children-wrapper">
-          {boxData.map((item, key) => (
-            <Selection
-              key={key}
-              item={item}
-              selectedColor={selectedColor} // Pass selected color to each Selection
-            />
-          ))}
-        </div>
+
+      <div className="row">
+        {colourConfig.map((config) => (
+          <ColourSelector
+            key={config.key}
+            config={config}
+            handleColorSelection={handleColorSelection}
+          />
+        ))}
+      </div>
+
+      <div className='row' id="children-wrapper">
+        {Array.from({ length: 3 }, (_, i) => (
+          <Selection key={i} index={i} selectedColor={selectedColor} />
+        ))}
       </div>
     </div>
   );
