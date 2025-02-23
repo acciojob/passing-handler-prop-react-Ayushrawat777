@@ -1,21 +1,20 @@
-import React, { useState } from "react"
+import React, { useState } from 'react';
 
-const Selection = ({ item, selectedColor }) => {
-  const [background, setBackground] = useState(item.background); // Initial background color
+const Selection = ({ index, selectedColor }) => {
+  const [boxColor, setBoxColor] = useState({ background: "" });
 
-  const handleClick = () => {
-    if (selectedColor) {
-      setBackground(selectedColor); // Update background with selected color
-    }
+  const handleBoxClick = () => {
+    setBoxColor(selectedColor);
   };
 
   return (
     <div
       className="fix-box"
-      style={{ background }}
-      onClick={handleClick}
+      style={{ ...boxColor, backgroundColor: boxColor.background || 'transparent' }}
+      data-testid={`selection-${index}`} // Add data-testid attribute
+      onClick={handleBoxClick}
     >
-      <h2>{item.box}</h2>
+      Selection {index + 1}
     </div>
   );
 };
