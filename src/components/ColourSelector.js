@@ -1,17 +1,16 @@
-import React from "react";
+import React from 'react';
 
-const ColourSelector = ({ item, selectNextBackground }) => {
-  const handleClick = () => {
-    selectNextBackground(item); // Pass the selected background color
-  }
+const ColourSelector = ({ config, handleColorSelection }) => {
+  const { label, background, classname } = config;
 
   return (
     <button
-      className={item.classname}
-      onClick={handleClick}
-      style={{ backgroundColor: item.background }}
+      className={classname}
+      style={{ background }}
+      data-testid={config.key} // Add data-testid attribute
+      onClick={() => handleColorSelection({ background })}
     >
-      {item.label}
+      {label}
     </button>
   );
 };
